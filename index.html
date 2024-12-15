@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazaar</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 10px;
+}
+
+header {
+    background-color: white;
+    color: black;
+    text-align: center;
+    position: fixed; /* Fix the header */
+    top: 0; /* Position it at the top */
+    width: 100%; /* Full width */
+    font-size: 100px;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+header h1 {
+    margin: 0;
+    padding: 15px;
+    font-size: 50px;
+}
+
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    width: 90%;
+    position: fixed; /* Fix the search bar */
+    top: 75px; /* Position it below the dashboard */
+    right: 10px; /* Align it to the right */
+    left: 3%;
+    z-index: 1001;
+    border-radius: 10px;
+}
+.search-bar input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Section Styles */
+.section {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+    justify-content: space-between; /* Space between the items */
+    padding: 10px;
+}
+.section .card {
+    flex: 0 1 calc(50px - 20px); /* Two cards per row */
+    margin: 10px; /* Margin for spacing */
+    padding: 15px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card img {
+    width: 50%; /* Make the image smaller */
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Add hover effects */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.card p:hover {
+    color: purple;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #333;
+}
+.footer a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.white-box {
+            width: 100%;
+            height: 130px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .black-box {
+            width: 100%;
+            height: 150px;
+            background-color: #f4f4f4;
+            margin: 0;
+            left: 0px;
+            right: 0px;
+            border-bottom: #333 solid ;
+            padding: 0;
+            position: fixed;
+            top: 0px;
+            z-index: 11;
+            box-sizing: border-box;
+        }
+/* Profile Menu Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.social-links img {
+    transition: transform 0.3s;
+}
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+
+
+/* Responsive Design */
+@media (max-width: 20000px) {
+            .dashboard a {
+                width: 100%; /* Make buttons full width */
+            }
+
+            .section .card {
+                flex: 1 1 calc(50% - 20px); /* Default to 2 items per row */
+            }
+
+            header h1 {
+                font-size: 20px; /* Smaller header on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section .card {
+                flex: 1 1 100%; /* 1 item per row */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bazaar</h1>
+</header>
+
+<div id="content">
+    <!-- Buy Now Section -->
+    <div id="buy-now" class="section">
+        
+        <div id="toddlerSection" style="display: block;">
+            
+            <div class="search-bar" id="searchBar">
+                <input type="text" id="toddlerSearchInput" placeholder="Search Toddler...">
+                <button onclick="filterComponents('toddler')">Search</button>
+            </div>
+            
+            <div class="section">
+                <div class="black-box"></div>
+                <div class="white-box"></div>
+                <a href="https://amzn.to/4ggfL0z" target="_blank">
+                    <div class="card">
+                        <img src="Toddler1.jpeg" alt="Toddler Product 1">
+                        <p>ATOM whey protein</p>
+                        <p style="display: none;"></p> 
+                    </div>
+                </a>
+                <a href="https://amzn.to/4fjRoxG" target="_blank">
+                    <div class="card">
+                        <img src="Toddler2.jpeg" alt="Toddler Product 1">
+                        <p>Muscle blaze createin</p>
+                    </div>
+                </a>
+                <a href="https://amzn.to/4ghF1Uk" target="_blank">
+                    <div class="card">
+                        <img src="Toddler3.jpeg" alt="Toddler Product 1">
+                        <p>as-it-is whey protein</p>
+                    </div>
+                </a>
+                <a href="https://amzn.to/3De04Zb" target="_blank">
+                    <div class="card">
+                        <img src="Toddler4.jpeg" alt="Toddler Product 1">
+                        <p>Muscle blaze whey protein</p>
+                    </div>
+                </a>
+                <a href="https://amzn.to/3VBhIN1" target="_blank">
+                    <div class="card">
+                        <img src="Toddler5.jpeg" alt="Toddler Product 1">
+                        <p>NAKPRO Gold Whey Protein</p>
+                    </div>
+                </a>
+                <a href="https://amzn.to/4iDz2e3" target="_blank">
+                    <div class="card">
+                        <img src="Toddler6.jpeg" alt="Toddler Product 1">
+                        <p>FUELONE Whey Max</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>       
+    </div>
+</div>
+
+<!-- Footer Links
+<div class="footer">
+    <a href="#" onclick="showPage('buy-now')">Buy Now</a>
+    <a href="#" onclick="showPage('home')">Home</a>
+</div> -->
+
+<script>
+    // Toggle Profile Menu
+    function toggleMenu() {
+        const menu = document.getElementById('profileMenu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Hide Profile Menu
+    function hideMenu() {
+        document.getElementById('profileMenu').style.display = 'none';
+    }
+    
+    // Page Navigation
+    function showPage(pageId) {
+        document.querySelectorAll('#content > div').forEach(page => {
+            page.style.display = 'none';
+        });
+        document.getElementById(pageId).style.display = 'block';
+    }
+
+    // Toggle Toddler/Kids Sections
+    function showBuyNowSection(section) {
+        document.getElementById('toddlerSection').style.display = 'none';
+        document.getElementById('kidsSection').style.display = 'none';
+        document.getElementById('toddlerTab').classList.remove('active');
+        document.getElementById('kidsTab').classList.remove('active');
+        if (section === 'toddler') {
+            document.getElementById('toddlerSection').style.display = 'block';
+            document.getElementById('toddlerTab').classList.add('active');
+        } else {
+            document.getElementById('kidsSection').style.display = 'block';
+            document.getElementById('kidsTab').classList.add('active');
+        }
+    }
+
+    // Redirect to Product Page
+    function redirectPage(product) {
+        alert("Redirecting to product: " + product);
+    }
+
+    // Close profile menu when clicking outside of it
+    window.addEventListener('click', function(event) {
+        const menu = document.getElementById('profileMenu');
+        const menuButton = document.querySelector('.menu-btn');
+        if (menu.style.display === 'block' && !menu.contains(event.target) && event.target !== menuButton) {
+            menu.style.display = 'none';
+        }
+    });
+
+    function filterComponents(section) {
+            const query = document.getElementById(`${section}SearchInput`).value.toLowerCase();
+            document.querySelectorAll(`#${section}Section .card`).forEach(card => {
+                const text = card.innerText.toLowerCase();
+                card.style.display = text.includes(query) ? "block" : "none";
+            });
+        }
+    // Default Page
+    showPage('buy-now');
+</script>
+
+</body>
+</html>
